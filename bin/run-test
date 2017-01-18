@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+python -c "import flask_sqlalchemy"
+INSTALLED=$?
+
+set -e
+if [ ${INSTALLED} != "0" ]; then
+  pip install -r requirements.txt \
+    -i http://mirrors.aliyun.com/pypi/simple \
+    --trusted-host mirrors.aliyun.com \
+    --no-cache-dir --disable-pip-version-check
+fi
+nosetests interview/tests
