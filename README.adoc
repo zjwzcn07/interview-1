@@ -56,6 +56,10 @@ Android 研发部 -> 客户端研发部 -> 研发部 -> 公司
 
 == 答题要求
 
-请 Fork 到自己的分支，每一题一个 commit，共三个 commit。
+请使用 Gerrit 工作流完成答题过程，Git 仓库地址：
 
-每个 commit 可以完成完整的测试。
+```
+https://review.gerrithub.io/#/admin/projects/lifei/interview-1
+```
+
+请通过 GerritHub 提交 Code Review。提交的结果可以完成完整的测试。
