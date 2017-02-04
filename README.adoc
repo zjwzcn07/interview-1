@@ -63,3 +63,5 @@ https://review.gerrithub.io/#/admin/projects/lifei/interview-1
 ```
 
 请通过 GerritHub 提交 Code Review。提交的结果可以完成完整的测试。
+
+NOTE: 代码必须符合 PEP8 规范，可忽略一下几项：`--ignore=W293,E402,E501,E251`。
