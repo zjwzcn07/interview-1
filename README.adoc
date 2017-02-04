@@ -56,6 +56,8 @@ Android 研发部 -> 客户端研发部 -> 研发部 -> 公司
 
 == 答题要求
 
+=== 答题流程
+
 请使用 Gerrit 工作流完成答题过程，Git 仓库地址：
 
 ```
@@ -64,4 +66,17 @@ https://review.gerrithub.io/#/admin/projects/lifei/interview-1
 
 请通过 GerritHub 提交 Code Review。提交的结果可以完成完整的测试。
 
-NOTE: 代码必须符合 PEP8 规范，可忽略一下几项：`--ignore=W293,E402,E501,E251`。
+=== 字段命名规范
+
+. 后缀与类型：
+.. 主键、外键等使用 id 后缀，为整型。
+.. 以 status、type 为后缀的字段名明确为整型，如枚举，按位存储等。
+.. 后缀 time 为时间型、后缀 date 为日期型，譬如不要使用 start_date 作为一个时间型字段。
+.. 以 key、title、label、name、description、uri、url 等为后缀的字段名明确为字符型。
+. 不要使用对象名作为**简单类型**的字段名，为其增加可识别其类型的后缀，如：uri、key 等。
+.. 头像不要使用 `avatar` 作为字段名，使用 `avatar_key` 或者 `avatar_url`。
+.. 字段名 `user` 不知道是 `user_id` 还是 `user_name`。 
+
+=== 编码规范
+
+代码必须符合 PEP8 规范，可忽略一下几项：`--ignore=W293,E402,E501,E251`。
