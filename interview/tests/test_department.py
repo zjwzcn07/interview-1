@@ -36,9 +36,8 @@ class TestDepartment(TestCase):
         employee3 = Employee(name='Eve', department=iosRD)
 
         db.session.add_all(
-        [company, RD1, RD2, clientRD1, clientRD2,androidRD, iosRD,
-         employee1, employee2,employee3])
-
+            [company, RD1, RD2, clientRD1, clientRD2, androidRD, iosRD,
+             employee1, employee2, employee3])
 
         db.session.commit()
 

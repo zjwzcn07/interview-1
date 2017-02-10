@@ -22,7 +22,7 @@ class DepartmentService(object):
         exist_user_id = Employee.query.filter_by(id=user_id).first()
         exist_department_id = Department.query.filter_by(
             id=department_id).first()
-        #确有此查询
+        # 确有此查询
         if exist_user_id and exist_department_id:
             user_department_id = Employee.query.filter_by(
                 id=user_id).first().department_id
