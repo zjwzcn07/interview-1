@@ -9,21 +9,21 @@ from .flask import app
 db = SQLAlchemy(app)
 
 
-class Develop(db.Model):
+class Department(db.Model):
     __tablename__ = 'Department'
     id = db.Column(BIGINT(unsigned=True), primary_key=True)
     name = db.Column(VARCHAR(64), nullable=False, unique=True)
     leader_id = db.Column(BIGINT(unsigned=True), default=0)
-    employees = db.relationship('Employee', backref='develop')
-    develop_permissions = db.relationship(
-        'DevelopPermission', backref='develop')
+    employees = db.relationship('Employee', backref='department')
+    department_permissions = db.relationship(
+        'DepartmentPermission', backref='department')
 
 
 class Employee(db.Model):
     __tablename__ = 'Employee'
     id = db.Column(BIGINT(unsigned=True), primary_key=True)
     name = db.Column(VARCHAR(64), nullable=False)
-    develop_id = db.Column(BIGINT(unsigned=True), db.ForeignKey(Develop.id))
+    department_id = db.Column(BIGINT(unsigned=True), db.ForeignKey(Department.id))
 
 
 class Resource(db.Model):
@@ -38,21 +38,21 @@ class Permission(db.Model):
     id = db.Column(BIGINT(unsigned=True), primary_key=True)
     action = db.Column(VARCHAR(64), nullable=False)
     resources_id = db.Column(BIGINT(unsigned=True), db.ForeignKey(Resource.id))
-    develop_permissions = db.relationship(
-        'DevelopPermission', backref='permission')
+    department_permissions = db.relationship(
+        'DepartmentPermission', backref='permission')
 
 
-class DevelopPermission(db.Model):
-    __tablename__ = 'DevelopPermission'
+class DepartmentPermission(db.Model):
+    __tablename__ = 'DepartmentPermission'
     id = db.Column(BIGINT(unsigned=True), primary_key=True)
-    develop_id = db.Column(BIGINT(unsigned=True), db.ForeignKey(Develop.id))
+    department_id = db.Column(BIGINT(unsigned=True), db.ForeignKey(Department.id))
     permission_id = db.Column(
         BIGINT(unsigned=True), db.ForeignKey(Permission.id))
 
 
-class DevelopLeaderPermission(db.Model):
-    __tablename__ = 'DevelopLeaderPermission'
+class DepartmentLeaderPermission(db.Model):
+    __tablename__ = 'DepartmentLeaderPermission'
     id = db.Column(BIGINT(unsigned=True), primary_key=True)
-    develop_id = db.Column(BIGINT(unsigned=True), db.ForeignKey(Develop.id))
+    department_id = db.Column(BIGINT(unsigned=True), db.ForeignKey(Department.id))
     permission_id = db.Column(
         BIGINT(unsigned=True), db.ForeignKey(Permission.id))

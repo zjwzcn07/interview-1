@@ -6,12 +6,12 @@ from unittest import TestCase
 from ..permission.service import PermissionService
 
 from ..models import db
-from ..models import Develop
+from ..models import Department
 from ..models import Employee
 from ..models import Resource
 from ..models import Permission
-from ..models import DevelopPermission
-from ..models import DevelopLeaderPermission
+from ..models import DepartmentPermission
+from ..models import DepartmentLeaderPermission
 
 
 class TestPermission(TestCase):
